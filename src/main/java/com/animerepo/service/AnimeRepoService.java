@@ -1,5 +1,7 @@
 package com.animerepo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,9 @@ public class AnimeRepoService {
 	public String addAnime(Anime anime) {
 		animeRepoRepository.save(anime);
 		return anime.getName();
+	}
+	
+	public List<Anime> getAllAnime(){
+		return animeRepoRepository.findAll();
 	}
 }
