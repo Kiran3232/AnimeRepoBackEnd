@@ -17,21 +17,19 @@ public class Anime {
 	@Id
 	public String id;
 
-	@Indexed(unique=true)
+	@Indexed(unique = true)
 	public String name;
-	
+
 	public String source;
-	
+
 	public String description;
-	
+
 	public String airStartDate;
-	
+
 	public String airEndDate;
-	
-	public String pictureName;
-	
-	public Binary image;
-	
+
+	public String imagePath;
+
 	public List<Season> seasons = new ArrayList<Season>();
 
 	public Anime() {
@@ -40,7 +38,7 @@ public class Anime {
 	}
 
 	public Anime(String id, String name, String source, String description, String airStartDate, String airEndDate,
-			String pictureName, Binary image, List<Season> seasons) {
+			String imagePath, List<Season> seasons) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -48,8 +46,7 @@ public class Anime {
 		this.description = description;
 		this.airStartDate = airStartDate;
 		this.airEndDate = airEndDate;
-		this.pictureName = pictureName;
-		this.image = image;
+		this.imagePath = imagePath;
 		this.seasons = seasons;
 	}
 
@@ -101,20 +98,12 @@ public class Anime {
 		this.airEndDate = airEndDate;
 	}
 
-	public String getPictureName() {
-		return pictureName;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setPictureName(String pictureName) {
-		this.pictureName = pictureName;
-	}
-
-	public Binary getImage() {
-		return image;
-	}
-
-	public void setImage(Binary image) {
-		this.image = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public List<Season> getSeasons() {
@@ -124,6 +113,5 @@ public class Anime {
 	public void setSeasons(List<Season> seasons) {
 		this.seasons = seasons;
 	}
-	
-	
+
 }

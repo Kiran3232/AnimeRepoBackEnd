@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,20 +28,27 @@ public class AnimeRepoController {
 	@Autowired
 	AnimeRepoService animeRepoService;
 	
+//	@PostMapping("/anime/add")
+//	public ResponseEntity<Anime> addAnime(@RequestParam("name") String name,@RequestParam("source") String source,@RequestParam("description") String description,@RequestParam("airStartDate") String airStartDate,@RequestParam("airEndDate") String airEndDate, @RequestParam("image") MultipartFile file) throws IOException {
+//		Anime anime = new Anime();
+//		anime.setName(name);
+//		anime.setSource(source);
+//		anime.setDescription(description);
+//		anime.setAirStartDate(airStartDate);
+//		anime.setAirEndDate(airEndDate);
+//		anime.setPictureName(file.getOriginalFilename());
+//		anime.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+//		List<Season> seasons = new ArrayList<Season>();
+//		anime.setSeasons(seasons);
+//		animeRepoService.addAnime(anime);
+//		ResponseEntity<Anime> response = new ResponseEntity<Anime>(anime, HttpStatus.OK);
+//		return response;
+//	}
+	
 	@PostMapping("/anime/add")
-	public ResponseEntity<Anime> addAnime(@RequestParam("name") String name,@RequestParam("source") String source,@RequestParam("description") String description,@RequestParam("airStartDate") String airStartDate,@RequestParam("airEndDate") String airEndDate, @RequestParam("image") MultipartFile file) throws IOException {
-		Anime anime = new Anime();
-		anime.setName(name);
-		anime.setSource(source);
-		anime.setDescription(description);
-		anime.setAirStartDate(airStartDate);
-		anime.setAirEndDate(airEndDate);
-		anime.setPictureName(file.getOriginalFilename());
-		anime.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
-		List<Season> seasons = new ArrayList<Season>();
-		anime.setSeasons(seasons);
+	public ResponseEntity<Anime> addAnime(@RequestBody Anime anime){
 		animeRepoService.addAnime(anime);
-		ResponseEntity<Anime> response = new ResponseEntity<Anime>(anime, HttpStatus.OK);
+		ResponseEntity<Anime> response = new ResponseEntity<Anime>(anime,HttpStatus.OK);
 		return response;
 	}
 	
