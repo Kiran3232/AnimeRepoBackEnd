@@ -1,6 +1,7 @@
 package com.animerepo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,18 @@ public class AnimeRepoService {
 	
 	public List<Anime> getAllAnime(){
 		return animeRepoRepository.findAll();
+	}
+	
+	public Anime getAnime(String animeName) {
+		Anime anime = new Anime();
+		Optional<Anime> optionalEntity = animeRepoRepository.findById(animeName);
+		if(optionalEntity.isPresent()) {
+			anime = optionalEntity.get();
+		}
+		else {
+			System.out.println("here");
+			anime = null;
+		}
+		return anime;
 	}
 }

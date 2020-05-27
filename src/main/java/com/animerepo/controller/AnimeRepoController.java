@@ -59,4 +59,12 @@ public class AnimeRepoController {
 		ResponseEntity<List<Anime>> response = new ResponseEntity<List<Anime>>(animeList,HttpStatus.OK);
 		return response;
 	}
+	
+	@PostMapping("/anime/get")
+	public ResponseEntity<Anime> getAnime(@RequestBody String animeName){
+		Anime anime = new Anime();
+		anime = animeRepoService.getAnime(animeName);
+		ResponseEntity<Anime> response = new ResponseEntity<>(anime,HttpStatus.OK);
+		return response;
+	}
 }
