@@ -36,4 +36,9 @@ public class AnimeRepoService {
 		}
 		return anime;
 	}
+	
+	public List<Anime> searchAnime(String name){
+		System.out.println(name);
+		return animeRepoRepository.findByName(name);
+	}
 }

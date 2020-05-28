@@ -67,4 +67,14 @@ public class AnimeRepoController {
 		ResponseEntity<Anime> response = new ResponseEntity<>(anime,HttpStatus.OK);
 		return response;
 	}
+	
+	@PostMapping("/anime/search")
+	public ResponseEntity<List<Anime>> searchAnime(@RequestBody String name){
+		List<Anime> animeList = new ArrayList<Anime>();
+		name = ".*"+ name + ".*";
+		animeList = animeRepoService.searchAnime(name);
+		System.out.println(animeList.toString());
+		ResponseEntity<List<Anime>> response = new ResponseEntity<List<Anime>>(animeList,HttpStatus.OK);
+		return response;
+	}
 }
