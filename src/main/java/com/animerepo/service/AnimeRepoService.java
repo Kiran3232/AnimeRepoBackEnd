@@ -31,7 +31,6 @@ public class AnimeRepoService {
 			anime = optionalEntity.get();
 		}
 		else {
-			System.out.println("here");
 			anime = null;
 		}
 		return anime;

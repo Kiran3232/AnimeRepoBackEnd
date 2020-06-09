@@ -61,10 +61,17 @@ public class AnimeRepoController {
 	}
 	
 	@PostMapping("/anime/get")
-	public ResponseEntity<Anime> getAnime(@RequestBody String animeName){
+	public ResponseEntity<?> getAnime(@RequestBody String animeName){
 		Anime anime = new Anime();
 		anime = animeRepoService.getAnime(animeName);
-		ResponseEntity<Anime> response = new ResponseEntity<>(anime,HttpStatus.OK);
+		ResponseEntity<?> response = null;
+		if(anime != null) {
+			response = new ResponseEntity<Anime>(anime,HttpStatus.OK);
+		}
+		else {
+			String errorMessage = "Error! Cannot Find Anime With ID : " + animeName;
+			response = new ResponseEntity<String>(errorMessage,HttpStatus.NOT_FOUND);
+		}
 		return response;
 	}
 	
@@ -73,7 +80,6 @@ public class AnimeRepoController {
 		List<Anime> animeList = new ArrayList<Anime>();
 		name = ".*"+ name + ".*";
 		animeList = animeRepoService.searchAnime(name);
-		System.out.println(animeList.toString());
 		ResponseEntity<List<Anime>> response = new ResponseEntity<List<Anime>>(animeList,HttpStatus.OK);
 		return response;
 	}
