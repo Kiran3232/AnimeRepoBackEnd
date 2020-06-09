@@ -14,4 +14,4 @@ deploy:
    organization: AnimeRepo
    space: development
    app_name: anime-repo
-   buildpack: https://github.com/cloudfoundry/java-buildpack.git
+   buildpack: java_buildpack
