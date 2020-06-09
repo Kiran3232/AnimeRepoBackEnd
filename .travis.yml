@@ -4,16 +4,10 @@ branches:
   only:
     - master
 sudo: true
-install:
-  - mvn -N io.takari:maven:wrapper
+before-script:
+  - sudo apt-get install cf-cli
 script:
   - mvn clean install
-deploy:
-   provider: cloudfoundry
-   username: $USERNAME
-   password: $PASSWORD
-   api: https://api.run.pivotal.io
-   organization: AnimeRepo
-   space: development
-   app_name: anime-repo
-   buildpack: java_buildpack
+after_success:
+  - cf login -a https://api.run.pivotal.io -u $USERNAME -p $PASSWORD -o AnimeRepo -s development
+  - cf push anime-repo -p target/animerepo-0.0.1-SNAPSHOT.jar
