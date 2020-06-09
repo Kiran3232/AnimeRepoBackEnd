@@ -14,5 +14,6 @@ deploy:
    organization: AnimeRepo
    space: development
    app_name: anime-repo
+   buildpack: https://github.com/Kiran3232/AnimeRepoBackEnd.git
    on: 
     repo: Kiran3232/AnimeRepoBackEnd
