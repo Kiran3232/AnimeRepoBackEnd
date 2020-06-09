@@ -17,6 +17,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.projectKey>Kiran3232_AnimeRepoBackEnd</sonar.projectKey>
+		<sonar.organization>kiran3232</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>8f80c051a7e43ebdd78beadc649caf07582d24c7</sonar.login>
 	</properties>
 
 	<dependencies>
@@ -33,6 +37,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>io.airbrake</groupId>
 			<artifactId>javabrake</artifactId>

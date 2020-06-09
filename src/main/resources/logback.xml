@@ -35,7 +35,7 @@
 		<appender-ref ref="FILE-ROLLING" />
 	</logger>
 	<logger name="org.springframework.boot">
-		<level value="trace" />
+		<level value="info" />
 		<appender-ref ref="console" />
 	</logger>
 
