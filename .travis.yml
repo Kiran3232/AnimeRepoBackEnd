@@ -14,3 +14,5 @@ deploy:
    organization: AnimeRepo
    space: development
    app_name: anime-repo
+   on: 
+    repo: Kiran3232/AnimeRepoBackEnd.git
