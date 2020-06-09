@@ -20,7 +20,7 @@
 		<sonar.projectKey>Kiran3232_AnimeRepoBackEnd</sonar.projectKey>
 		<sonar.organization>kiran3232</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>8f80c051a7e43ebdd78beadc649caf07582d24c7</sonar.login>
+		<sonar.login>61ce94dd31027f63236083da2e359e2ca93bcded</sonar.login>
 	</properties>
 
 	<dependencies>
