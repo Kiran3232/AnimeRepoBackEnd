@@ -6,7 +6,6 @@ branches:
 sudo: true
 install:
   - mvn -N io.takari:maven:wrapper
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
    provider: cloudfoundry
    username: $USERNAME
@@ -14,3 +13,4 @@ deploy:
    api: https://api.run.pivotal.io
    organization: AnimeRepo
    space: development
+   app_name: anime-repo
