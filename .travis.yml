@@ -4,6 +4,8 @@ branches:
   only:
     - master
 sudo: true
+install:
+  - mvn -N io.takari:maven:wrapper
 before-script:
   - sudo apt-get install cf-cli
 script:
