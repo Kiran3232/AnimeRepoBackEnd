@@ -6,6 +6,8 @@ branches:
 sudo: true
 install:
   - mvn -N io.takari:maven:wrapper
+script:
+  - mvn clean install
 deploy:
    provider: cloudfoundry
    username: $USERNAME
