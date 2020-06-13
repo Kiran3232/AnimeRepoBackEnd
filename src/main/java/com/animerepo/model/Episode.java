@@ -7,6 +7,8 @@ public class Episode {
 	public String title;
 	
 	public String description;
+	
+	public String image;
 
 	public String url;
 }

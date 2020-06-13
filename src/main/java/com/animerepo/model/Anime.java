@@ -1,15 +1,10 @@
 package com.animerepo.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Document(collection = "Anime")
 public class Anime {
@@ -30,7 +25,13 @@ public class Anime {
 
 	public String imagePath;
 
-	public List<Season> seasons = new ArrayList<Season>();
+	public List<String> images;
+
+	public List<Season> seasons;
+
+	public String youtubeTrailerUrl;
+	
+	private List<String> whereToWatch;
 
 	public Anime() {
 		super();
@@ -38,7 +39,7 @@ public class Anime {
 	}
 
 	public Anime(String id, String name, String source, String description, String airStartDate, String airEndDate,
-			String imagePath, List<Season> seasons) {
+			String imagePath, List<String> images, List<Season> seasons, String youtubeTrailerUrl, List<String> whereToWatch) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,7 +48,10 @@ public class Anime {
 		this.airStartDate = airStartDate;
 		this.airEndDate = airEndDate;
 		this.imagePath = imagePath;
+		this.images = images;
 		this.seasons = seasons;
+		this.youtubeTrailerUrl = youtubeTrailerUrl;
+		this.whereToWatch = whereToWatch;
 	}
 
 	public String getId() {
@@ -106,12 +110,36 @@ public class Anime {
 		this.imagePath = imagePath;
 	}
 
+	public List<String> getImages() {
+		return images;
+	}
+
+	public void setImages(List<String> images) {
+		this.images = images;
+	}
+
 	public List<Season> getSeasons() {
 		return seasons;
 	}
 
 	public void setSeasons(List<Season> seasons) {
 		this.seasons = seasons;
+	}
+
+	public String getYoutubeTrailerUrl() {
+		return youtubeTrailerUrl;
+	}
+
+	public void setYoutubeTrailerUrl(String youtubeTrailerUrl) {
+		this.youtubeTrailerUrl = youtubeTrailerUrl;
+	}
+
+	public List<String> getWhereToWatch() {
+		return whereToWatch;
+	}
+
+	public void setWhereToWatch(List<String> whereToWatch) {
+		this.whereToWatch = whereToWatch;
 	}
 
 }
